@@ -5,7 +5,7 @@ trait List[+A]
 case object Nil extends List[Nothing]
 case class Cons[+A](head: A, tail : List[A]) extends List[A]
 
-object List {
+		object List {
 
 
 	def apply[A](as :  A*):List[A] ={
@@ -19,11 +19,19 @@ object List {
 
 			if(n<=0) list
 			else list match{
-			  case Nil => Nil
-			  case Cons(h,t) => drop(t, n-1)
+			case Nil => Nil
+			case Cons(_,t) => drop(t, n-1)
 			}
 
 	}
+
+
+	def dropWhile[A](l: List[A]) (f: A => Boolean): List[A] = l match {
+	  case Cons(h,t) if f(h) => dropWhile(t)(f)
+	  case _ => l 
+	
+	}
+
 
 
 
