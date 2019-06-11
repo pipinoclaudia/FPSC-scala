@@ -37,6 +37,8 @@ object Sort {
 
 	}
 
+	//per avere C devo applicare a e b utilizzando la funzione f(a,b). gli argomenti vengono applicati solo 
+	//perche' non verranno applicati ad A=>B. Simile per uncurry e compose
 
 	def curry[A,B,C] (f:(A,B) => C) : A=>(B=>C) = {
 
